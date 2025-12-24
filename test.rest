@@ -1,5 +1,5 @@
-@apiKey = fTqgM52Cmbal14rFxDZGPzo0dLUOQANjFmo8hfUr
+@apiKey = your api key here
 GET https://api.nasa.gov/planetary/apod?api_key={{apiKey}}
 
 ###second one
-GET https://api.nasa.gov/planetary/apod?api_key=fTqgM52Cmbal14rFxDZGPzo0dLUOQANjFmo8hfUr
+GET https://api.nasa.gov/planetary/apod?api_key=your api key here
