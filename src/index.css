@@ -1,0 +1,261 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  
+  color: rgb(255, 255, 255);
+  background-color: #140101;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+.imgContainer{
+  display:flex;
+  flex-direction: column;
+  flex:1;
+}
+#root{
+
+  min-height:100vh;
+  display:flex;
+  position: relative;
+  overflow: hidden;
+  
+}
+.bgImage{
+  width: 100%;
+  height: 100%;
+  /* flex:1; grow as much as you can to fill the empty space */
+  flex:1;
+  object-fit: cover;
+}
+
+footer{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  gap:1rem;
+  padding: 1rem;
+
+}
+
+footer h2{
+  font-size:1.5rem;
+
+
+}
+footer h1{
+  font-weight: 100;
+  font-size: 1rem;;
+}
+
+footer div{
+  display:flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+footer button{
+    background:transparent;
+    color: white;
+    border: none;
+    outline:none;
+    padding: 1rem;
+    margin-right: auto;
+    transition-duration:250ms ;
+    margin-left: auto;
+}
+footer button i{
+  font-size: 20px;
+}
+footer button:hover{
+  opacity:0.25;
+  cursor: pointer;
+  
+}
+.bgGradient{
+  position: absolute;
+  inset:0;
+  z-index: -1;
+  background:linear-gradient(to top, hsl(0, 0%, 0%),hsla(0, 0%, 0%, 0.219));
+}
+/* button{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 100%;
+  
+} */
+
+.sideBar{
+  position: fixed;
+  /* inset:0;  it set top, left,bottom, right to 0 */
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.bgOverlay{
+  position: absolute;
+  inset:0;
+  background: #111111a2;
+  opacity: 0.6;
+}
+
+.sideContents{
+  z-index: 15;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* overflow-y: scroll;  Forces a vertical scroll bar to appear
+  */
+  overflow-y: scroll;
+  
+  gap:1rem;
+  padding: 1rem;;
+  height: 100%;
+  width:80%;
+  
+  max-width: 800px;
+  margin-left: auto;
+
+  background-color:#070707;
+}
+
+.sideContents div {
+  flex:1;
+  
+}
+
+.sideContents button {
+  background:transparent;
+  color: white;
+  border: none;
+  outline:none;
+  margin-right: auto;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+.sideContents button:hover{
+
+  opacity: 0.7;
+  font-size: 20px;
+}
+.sideContents button i{
+  font-size: 20px;
+}
+
+.sideContents h2{
+  font-weight:200;
+  font-size: 1.4rem;
+}
+.descTitle{
+  font-size:1remm;
+  font-weight:200; /* controls the thickness */
+  color:rgb(189, 76, 76)
+}
+
+.descContainer {
+  position: relative;
+  background: #060606; /* Dark space background */
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden; /* This crops the rotating gradient so it looks like a border */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+}
+
+/* The Moving Border Effect */
+.descContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* Space Colors: Deep Purple, Cosmic Blue, and Stars */
+  background: conic-gradient(
+    transparent, 
+    #7928ca, /* Purple */
+    #ff0080, /* Pink/Nebula */
+    #00dfd8, /* Teal/Star */
+    transparent 30%
+  );
+  animation: rotate 4s linear infinite;
+  z-index: -2;
+}
+
+/* The "Inner" Box to create the border thickness */
+.descContainer::after {
+  content: '';
+  position: absolute;
+  inset: 4px; /* Change this value to make the border thicker or thinner */
+  background: #060606; /* Must match your container background */
+  border-radius: 10px;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* if the browser window is640px or larger apply these changes */
+@media (min-width: 640px){
+
+  .sideBar{
+
+    position: relative;
+    inset: unset;
+    width: 30%;
+    box-shadow : 0 0 10px 10px black;
+  }
+  .sideContents{
+    width:100%;
+    margin:unset;
+
+  }
+}
+
+.loadingState{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+  
+  animation:spin 1s linear infinite;  
+}
+
+.loadingState i{
+  opacity: 0.2;
+  font-size: 30px;
+}
+
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+  
+}
+
